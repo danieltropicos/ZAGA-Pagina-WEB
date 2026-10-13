@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos · ZAGA Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" aria-label="ZAGA, ir al inicio">
+        <img src="img/logozaga.png" alt="ZAGA">
+      </a>
+
+      <div class="header__right">
+        <span class="header__section">Taller creativo / Administración</span>
+        <span class="avatar" aria-label="Usuario administrador">AP</span>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#">Taller creativo / Administración</a>
+      <a href="#" class="is-active">Catálogo / Productos</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <div class="container">
+
+      <p class="breadcrumb">Catálogo / Productos</p>
+      <h1 class="title">Productos</h1>
+      <p class="subtitle">Administra los detalles que hacen únicos tus productos.</p>
+
+      <div class="toolbar">
+        <label class="search" for="searchInput">
+          <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <input type="search" id="searchInput" placeholder="Buscar por nombre o categoría" autocomplete="off">
+        </label>
+        <button class="btn btn--primary" type="button">+ Nuevo producto</button>
+      </div>
+
+      <p class="meta"><span id="countText">2 productos</span> · Información comercial</p>
+
+      <!-- TABLA / TARJETAS -->
+      <section class="table-card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody id="productsBody">
+
+            <tr class="row" data-name="Camiseta personalizada" data-category="Camisetas" data-price="$45.000 COP" data-image="img/camiseta.png">
+              <td class="cell cell--img"><img class="thumb" src="img/camiseta.png" alt="Camiseta personalizada"></td>
+              <td class="cell cell--name">Camiseta personalizada</td>
+              <td class="cell cell--category">Camisetas</td>
+              <td class="cell cell--price">$45.000 COP</td>
+              <td class="cell cell--status"><span class="badge">Activo</span></td>
+              <td class="cell cell--action">
+                <button class="action action--edit" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                  <span>Editar</span>
+                </button>
+              </td>
+              <td class="cell cell--action">
+                <button class="action action--delete" type="button" data-delete>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                  <span>Eliminar</span>
+                </button>
+              </td>
+            </tr>
+
+            <tr class="row" data-name="Vaso personalizado" data-category="Vasos" data-price="$28.000 COP" data-image="img/vaso.png">
+              <td class="cell cell--img"><img class="thumb" src="img/vaso.png" alt="Vaso personalizado"></td>
+              <td class="cell cell--name">Vaso personalizado</td>
+              <td class="cell cell--category">Vasos</td>
+              <td class="cell cell--price">$28.000 COP</td>
+              <td class="cell cell--status"><span class="badge">Activo</span></td>
+              <td class="cell cell--action">
+                <button class="action action--edit" type="button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                  <span>Editar</span>
+                </button>
+              </td>
+              <td class="cell cell--action">
+                <button class="action action--delete" type="button" data-delete>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                  <span>Eliminar</span>
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p class="empty" id="emptyState" hidden>No se encontraron productos.</p>
+
+        <div class="table-footer">
+          <span id="showingText">Mostrando 2 de 2 productos</span>
+          <span>Página 1 de 1</span>
+        </div>
+      </section>
+
+      <p class="note">Los cambios guardados se reflejan en la tienda.</p>
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>ZAGA · Panel de administración</span>
+      <a href="#">¿Necesitas ayuda? Contacta al equipo</a>
+    </div>
+  </footer>
+
+  <!-- MODAL ELIMINAR -->
+  <div class="modal" id="deleteModal" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <div class="modal__top">
+        <span class="modal__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        </span>
+        <button class="modal__close" type="button" aria-label="Cerrar" data-close>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <h2 class="modal__title" id="modalTitle">¿Eliminar producto?</h2>
+      <p class="modal__text" id="modalDesc">¿Estás seguro de que deseas eliminar este producto?</p>
+
+      <div class="modal__product">
+        <img id="modalImg" src="img/camiseta.png" alt="">
+        <div>
+          <strong id="modalName">Camiseta personalizada</strong>
+          <span id="modalInfo">Camisetas · $45.000 COP</span>
+        </div>
+      </div>
+
+      <p class="modal__warning">Esta acción no se puede deshacer.</p>
+
+      <div class="modal__actions">
+        <button class="btn btn--outline" type="button" data-close>Cancelar</button>
+        <button class="btn btn--danger" type="button" id="confirmDelete">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
