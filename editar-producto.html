@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar producto · ZAGA Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/editar-producto.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="inventario-productos.html" class="header__logo" aria-label="ZAGA, ir al inicio">
+        <img src="img/logozaga.png" alt="ZAGA">
+      </a>
+
+      <div class="header__right">
+        <span class="header__section">Taller creativo / Administración</span>
+        <span class="avatar" aria-label="Usuario administrador">AP</span>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#">Taller creativo / Administración</a>
+      <a href="inventario-productos.html" class="is-active">Catálogo / Productos</a>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <div class="container">
+
+      <p class="breadcrumb">
+        <a href="inventario-productos.html">Productos</a> / Camiseta personalizada
+      </p>
+      <h1 class="title">Editar producto</h1>
+      <p class="subtitle">Actualiza su información comercial y opciones de personalización.</p>
+
+      <form class="form" id="productForm" novalidate>
+        <div class="form__grid">
+
+          <!-- Columna principal -->
+          <section class="card" aria-labelledby="infoTitle">
+            <h2 class="card__title" id="infoTitle">Información del producto</h2>
+
+            <div class="field">
+              <span class="label" id="imageLabel">Imagen</span>
+              <div class="upload" aria-labelledby="imageLabel">
+                <img class="upload__thumb" id="previewImg" src="img/camiseta.png" alt="Vista previa de la imagen del producto">
+                <div class="upload__info">
+                  <p class="upload__name" id="fileName">camiseta-personalizada.jpg</p>
+                  <p class="upload__hint">JPG o PNG · Máximo 5 MB</p>
+                  <button class="btn btn--outline btn--sm" type="button" id="changeImageBtn">Cambiar imagen</button>
+                  <input type="file" id="imageInput" accept="image/png, image/jpeg" hidden>
+                </div>
+              </div>
+              <p class="field__error" id="imageError" role="alert" hidden>La imagen supera los 5 MB. Elige una más liviana.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="name">Nombre</label>
+              <input class="control" type="text" id="name" name="name" value="Camiseta personalizada">
+            </div>
+
+            <div class="field">
+              <label class="label" for="category">Categoría</label>
+              <div class="select">
+                <select class="control" id="category" name="category">
+                  <option value="camisetas" selected>Camisetas</option>
+                  <option value="vasos">Vasos</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="description">Descripción</label>
+              <textarea class="control" id="description" name="description" rows="3">Camiseta personalizada con diseño a elección.</textarea>
+            </div>
+
+            <div class="field field--last">
+              <label class="label" for="price">Precio</label>
+              <input class="control" type="text" id="price" name="price" value="$45.000 COP" inputmode="numeric">
+              <p class="field__hint">Precio de venta en pesos colombianos (COP).</p>
+            </div>
+          </section>
+
+          <!-- Columna lateral -->
+          <aside class="side">
+            <section class="card card--side" aria-labelledby="customTitle">
+              <h2 class="card__title" id="customTitle">Personalización y estado</h2>
+
+              <div class="field">
+                <label class="label" for="custom">Opciones de personalización</label>
+                <textarea class="control" id="custom" name="custom" rows="3">Texto, imagen y diseño</textarea>
+                <p class="field__hint">Indica qué puede personalizar el cliente.</p>
+              </div>
+
+              <div class="field field--last">
+                <label class="label" for="status">Estado</label>
+                <div class="select">
+                  <select class="control" id="status" name="status">
+                    <option value="activo" selected>Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                  </select>
+                </div>
+                <p class="field__hint">El producto será visible en la tienda.</p>
+              </div>
+            </section>
+
+            <section class="tip">
+              <h3 class="tip__title">Los detalles hacen la diferencia</h3>
+              <p class="tip__text">Usa una imagen clara y una descripción precisa para que cada cliente encuentre su próximo favorito.</p>
+            </section>
+          </aside>
+        </div>
+
+        <div class="form__actions">
+          <a class="btn btn--outline" href="inventario-productos.html">Cancelar</a>
+          <button class="btn btn--primary" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            Guardar cambios
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>ZAGA · Panel de administración</span>
+      <a href="#">¿Necesitas ayuda? Contacta al equipo</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Cambios guardados</div>
+
+  <script src="js/main.js"></script>
+  <script src="js/editar-producto.js"></script>
+</body>
+</html>
