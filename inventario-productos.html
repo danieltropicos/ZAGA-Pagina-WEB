@@ -71,8 +71,8 @@
           </thead>
           <tbody id="productsBody">
 
-            <tr class="row" data-name="Camiseta personalizada" data-category="Camisetas" data-price="$45.000 COP" data-image="img/camiseta.png">
-              <td class="cell cell--img"><img class="thumb" src="img/camiseta.png" alt="Camiseta personalizada"></td>
+            <tr class="row" data-name="Camiseta personalizada" data-category="Camisetas" data-price="$45.000 COP" data-image="img/camiseta.jpeg">
+              <td class="cell cell--img"><img class="thumb" src="img/camiseta.jpeg" alt="Camiseta personalizada"></td>
               <td class="cell cell--name">Camiseta personalizada</td>
               <td class="cell cell--category">Camisetas</td>
               <td class="cell cell--price">$45.000 COP</td>
@@ -91,8 +91,8 @@
               </td>
             </tr>
 
-            <tr class="row" data-name="Vaso personalizado" data-category="Vasos" data-price="$28.000 COP" data-image="img/vaso.png">
-              <td class="cell cell--img"><img class="thumb" src="img/vaso.png" alt="Vaso personalizado"></td>
+            <tr class="row" data-name="Vaso personalizado" data-category="Vasos" data-price="$28.000 COP" data-image="img/vaso.jpeg">
+              <td class="cell cell--img"><img class="thumb" src="img/vaso.jpeg" alt="Vaso personalizado"></td>
               <td class="cell cell--name">Vaso personalizado</td>
               <td class="cell cell--category">Vasos</td>
               <td class="cell cell--price">$28.000 COP</td>
@@ -109,7 +109,28 @@
                   <span>Eliminar</span>
                 </button>
               </td>
+
             </tr>
+             <tr class="row" data-name="Bolsa de playa personalizada" data-category="Bolsas" data-price="$30.000 COP" data-image="img/bolsadeplaya.jpeg">
+              <td class="cell cell--img"><img class="thumb" src="img/bolsadeplaya.jpeg" alt="Bolsa de playa personalizada"></td>
+              <td class="cell cell--name">Bolsa de playa personalizada</td>
+              <td class="cell cell--category">Bolsas</td>
+              <td class="cell cell--price">$30.000 COP</td>
+              <td class="cell cell--status"><span class="badge">Inactivo</span></td>
+              <td class="cell cell--action">
+                <a href="editar-producto.html" class="action action--edit">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                  <span>Editar</span>
+                </a>
+              </td>
+              <td class="cell cell--action">
+                <button class="action action--delete" type="button" data-delete>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+                  <span>Eliminar</span>
+                </button>
+              </td>
+            </tr>
+
 
           </tbody>
         </table>
@@ -151,7 +172,7 @@
       <p class="modal__text" id="modalDesc">¿Estás seguro de que deseas eliminar este producto?</p>
 
       <div class="modal__product">
-        <img id="modalImg" src="img/camiseta.png" alt="">
+        <img id="modalImg" src="img/camiseta.jpeg" alt="">
         <div>
           <strong id="modalName">Camiseta personalizada</strong>
           <span id="modalInfo">Camisetas · $45.000 COP</span>
