@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuevo producto · ZAGA Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/nuevo-producto.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  </svg>
+
+  <div class="topbar">
+    <span class="topbar__group"><strong>ZAGA</strong> · Panel de administración</span>
+    <a class="topbar__view" href="#">Ver tienda</a>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="inventario-productos.html" aria-label="ZAGA, ir al inventario">
+      <img src="img/logozaga.png" alt="ZAGA">
+    </a>
+    <div class="header__actions">
+      <span class="account">Taller creativo / Administración</span>
+      <span class="avatar" aria-label="Usuario administrador">AP</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="heading">
+      <p class="eyebrow">CATÁLOGO / PRODUCTOS</p>
+      <h1>Nuevo producto</h1>
+      <p class="heading__desc">Completa la información para agregar tu producto al catálogo.</p>
+    </div>
+
+    <form id="productForm" class="product-form" novalidate>
+
+      <div id="errorSummary" class="error-summary" role="alert" hidden>
+        <svg class="icon icon--20"><use href="#i-alert"/></svg>
+        <div class="error-summary__text">
+          <p class="error-summary__title">Revisa los campos indicados</p>
+          <p class="error-summary__desc">Corrige la información para guardar el producto.</p>
+        </div>
+      </div>
+
+      <div class="layout">
+
+        <section class="card essentials">
+          <h2 class="card__title">Información esencial</h2>
+
+          <div class="field">
+            <span class="label">Imagen del producto</span>
+            <div class="upload">
+              <img id="imgPreview" class="upload__img" alt="Vista previa del producto" src="img/taza.jpg">
+              <div class="upload__info">
+                <p id="imgName" class="upload__name">taza.jpg</p>
+                <p class="help">JPG o PNG, máximo 5 MB. Recomendado: 1000 × 1000 px con fondo limpio.</p>
+              </div>
+              <button type="button" id="imgBtn" class="btn btn--secondary">Cambiar imagen</button>
+              <input type="file" id="imgInput" accept="image/png,image/jpeg" hidden>
+            </div>
+          </div>
+
+          <div class="field" data-field="name">
+            <label class="label" for="name">Nombre del producto</label>
+            <div class="control">
+              <input id="name" name="name" type="text" required minlength="3" maxlength="60"
+                     placeholder="Ej. Taza personalizada" aria-describedby="name-err" autocomplete="off">
+              <svg class="icon icon--17 icon--alert"><use href="#i-alert"/></svg>
+            </div>
+            <p id="name-err" class="error-msg"></p>
+          </div>
+
+          <div class="field" data-field="category">
+            <label class="label" for="category">Categoría</label>
+            <div class="control control--select">
+              <select id="category" name="category" required aria-describedby="category-err">
+                <option value="">Selecciona una categoría</option>
+                <option>Camisetas</option>
+                <option>Vasos</option>
+                <option>Bolsas</option>
+              </select>
+              <svg class="icon icon--16 icon--chevron"><use href="#i-chevron"/></svg>
+            </div>
+            <p id="category-err" class="error-msg"></p>
+          </div>
+
+          <div class="field" data-field="description">
+            <label class="label" for="description">Descripción</label>
+            <div class="control control--area">
+              <textarea id="description" name="description" rows="2" required minlength="20" maxlength="300"
+                        placeholder="Describe materiales, tamaños y opciones de personalización" aria-describedby="description-err"></textarea>
+              <svg class="icon icon--17 icon--alert"><use href="#i-alert"/></svg>
+            </div>
+            <p id="description-err" class="error-msg"></p>
+            <p id="description-count" class="help counter">0 / 300</p>
+          </div>
+
+          <div class="field" data-field="price">
+            <label class="label" for="price">Precio (COP)</label>
+            <div class="control">
+              <input id="price" name="price" type="text" inputmode="numeric" required
+                     placeholder="Ej. 45000" aria-describedby="price-err price-help" autocomplete="off">
+              <svg class="icon icon--17 icon--alert"><use href="#i-alert"/></svg>
+            </div>
+            <p id="price-err" class="error-msg"></p>
+            <p id="price-help" class="help">Escribe solo números, sin puntos ni símbolos. Ejemplo: 45000.</p>
+          </div>
+        </section>
+
+        <aside class="side">
+          <section class="card config">
+            <h2 class="card__title">Configuración</h2>
+
+            <div class="field">
+              <label class="label" for="notes">Opciones de personalización</label>
+              <div class="control control--area control--plain">
+                <textarea id="notes" name="notes" rows="2">Texto, imagen y diseño</textarea>
+              </div>
+              <p class="help">Indica qué puede personalizar el cliente.</p>
+            </div>
+
+            <div class="field">
+              <label class="label" for="status">Estado</label>
+              <div class="control control--select control--plain">
+                <select id="status" name="status">
+                  <option>Activo</option>
+                  <option>Inactivo</option>
+                </select>
+                <svg class="icon icon--16 icon--chevron"><use href="#i-chevron"/></svg>
+              </div>
+              <p class="help">Solo los productos activos serán visibles en la tienda.</p>
+            </div>
+          </section>
+
+          <section class="guidance">
+            <p class="guidance__title">Los detalles hacen la diferencia</p>
+            <p class="guidance__text">Usa una imagen clara y una descripción precisa para que cada cliente encuentre su próximo favorito.</p>
+          </section>
+        </aside>
+      </div>
+
+      <hr class="divider">
+
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="btn btn--secondary">Cancelar</button>
+        <button type="submit" class="btn btn--primary">
+          <svg class="icon icon--20"><use href="#i-check"/></svg>
+          Guardar producto
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <span>ZAGA · Panel de administración</span>
+    <a href="#">¿Necesitas ayuda? Contacta al equipo</a>
+  </footer>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="js/nuevo-producto.js"></script>
+</body>
+</html>
