@@ -39,12 +39,21 @@
     <div class="container">
 
       <p class="breadcrumb">
-        <a href="inventario-productos.html">Productos</a> / Camiseta personalizada
+        <a href="inventario-productos.html">Productos</a> / <span id="crumbName">Camiseta personalizada</span>
       </p>
       <h1 class="title">Editar producto</h1>
       <p class="subtitle">Actualiza su información comercial y opciones de personalización.</p>
 
       <form class="form" id="productForm" novalidate>
+
+        <div class="alert" id="formAlert" role="alert" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+          <div>
+            <p class="alert__title">Revisa los campos indicados</p>
+            <p class="alert__text">Corrige la información antes de guardar los cambios.</p>
+          </div>
+        </div>
+
         <div class="form__grid">
 
           <!-- Columna principal -->
@@ -67,27 +76,42 @@
 
             <div class="field">
               <label class="label" for="name">Nombre</label>
-              <input class="control" type="text" id="name" name="name" value="Camiseta personalizada">
+              <div class="control-wrap">
+                <input class="control" type="text" id="name" name="name" value="Camiseta personalizada" autocomplete="off">
+                <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+              </div>
+              <p class="field__error" id="nameError" hidden></p>
             </div>
 
             <div class="field">
               <label class="label" for="category">Categoría</label>
               <div class="select">
                 <select class="control" id="category" name="category">
+                  <option value="">Seleccionar</option>
                   <option value="camisetas" selected>Camisetas</option>
                   <option value="vasos">Vasos</option>
+                  <option value="bolsas">Bolsas</option>
                 </select>
               </div>
+              <p class="field__error" id="categoryError" hidden></p>
             </div>
 
             <div class="field">
               <label class="label" for="description">Descripción</label>
-              <textarea class="control" id="description" name="description" rows="3">Camiseta personalizada con diseño a elección.</textarea>
+              <div class="control-wrap control-wrap--area">
+                <textarea class="control" id="description" name="description" rows="3">Camiseta personalizada con diseño a elección.</textarea>
+                <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+              </div>
+              <p class="field__error" id="descriptionError" hidden></p>
             </div>
 
             <div class="field field--last">
               <label class="label" for="price">Precio</label>
-              <input class="control" type="text" id="price" name="price" value="$45.000 COP" inputmode="numeric">
+              <div class="control-wrap">
+                <input class="control" type="text" id="price" name="price" value="$45.000 COP" inputmode="numeric" autocomplete="off">
+                <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+              </div>
+              <p class="field__error" id="priceError" hidden></p>
               <p class="field__hint">Precio de venta en pesos colombianos (COP).</p>
             </div>
           </section>
@@ -99,7 +123,11 @@
 
               <div class="field">
                 <label class="label" for="custom">Opciones de personalización</label>
-                <textarea class="control" id="custom" name="custom" rows="3">Texto, imagen y diseño</textarea>
+                <div class="control-wrap control-wrap--area">
+                  <textarea class="control" id="custom" name="custom" rows="3">Texto, imagen y diseño</textarea>
+                  <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+                </div>
+                <p class="field__error" id="customError" hidden></p>
                 <p class="field__hint">Indica qué puede personalizar el cliente.</p>
               </div>
 

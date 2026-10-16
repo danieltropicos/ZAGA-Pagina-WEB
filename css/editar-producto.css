@@ -96,6 +96,64 @@ textarea.control {
   color: var(--danger);
 }
 
+/* ---------- Validaciones ---------- */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  border: 1px solid #f5cdc9;
+  border-radius: var(--radius);
+}
+
+.alert svg { margin-top: 1px; }
+
+.alert__title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.alert__text {
+  margin: 2px 0 0;
+  font-size: 13px;
+}
+
+/* Campo con ícono de error dentro */
+.control-wrap { position: relative; }
+
+.control-wrap .field__icon {
+  display: none;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  color: var(--danger);
+  pointer-events: none;
+}
+
+.control-wrap--area .field__icon { top: 15px; transform: none; }
+
+.control.is-invalid {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.control.is-invalid:hover { border-color: var(--danger); }
+
+.control.is-invalid:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(185, 58, 50, .18);
+}
+
+.control.is-invalid ~ .field__icon { display: block; }
+.control-wrap .control.is-invalid { padding-right: 42px; }
+
 /* Select con flecha propia */
 .select { position: relative; }
 
